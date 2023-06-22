@@ -90,9 +90,9 @@ export default function Rightbar({ user }) {
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
             <span className="rightbarInfoValue">{
-            user.relationship==1
+            user.relationship===1
             ? "Single" 
-            :user.relationship==2 
+            :user.relationship===2 
             ? "Married" 
             :"-"}
             </span>
