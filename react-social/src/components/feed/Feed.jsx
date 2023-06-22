@@ -10,7 +10,7 @@ export default function Feed({username}) {
   const {user} = useContext(AuthContext);
 
   useEffect(()=>{
-    const fetchPosts = async () => {
+     async () => {
           const response = username
               ? await axios.get('/posts/profile/'+username)
               : await axios.get('/posts/timeline/'+user._id);
