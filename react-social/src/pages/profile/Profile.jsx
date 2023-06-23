@@ -17,7 +17,7 @@ export default function Profile() {
 },username)
 
 const fetchUser = async () => {
-      const res = await axios.get(`https://social-app-il8y.onrender.com/users?username=${username}`);
+      const res = await axios.get(`/users?username=${username}`);
       setUser(res.data);
 };
 
