@@ -10,7 +10,7 @@ const postRoute = require("./routes/posts");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
-// const cors = require('cors');
+const cors = require('cors');
 
 
 dotenv.config();
@@ -21,7 +21,7 @@ const connection =mongoose.connect(process.env.MONGO_URL,
     
     if(connection)console.log("Connected to MongoDB");
     
-    // app.use(cors);
+    app.use(cors);
     app.use("/images", express.static(path.join(__dirname, "public/images")));
     app.use(express.json());
     app.use(helmet());
