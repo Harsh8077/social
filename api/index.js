@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
@@ -11,16 +10,14 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const cors = require('cors');
-app.use(cors());
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://leafy-tapioca-6eb345.netlify.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
 
 dotenv.config();
+
+const app = express();
+
+app.use(cors());
+
+
 
 const connection =mongoose.connect(process.env.MONGO_URL,
     {useNewUrlParser: true,useUnifiedTopology: true}
