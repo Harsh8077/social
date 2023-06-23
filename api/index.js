@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const cors = require('cors');
+app.use(cors());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://leafy-tapioca-6eb345.netlify.app');
