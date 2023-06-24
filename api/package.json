@@ -1,12 +1,13 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "proxy":"https://social-app-il8y.onrender.com",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "build":"npm i"
+    "build": "npm i"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +18,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "helmet": "^7.0.0",
+    "http-proxy-middleware": "^2.0.6",
     "mongodb": "^5.6.0",
     "mongoose": "^7.3.0",
     "morgan": "^1.10.0",

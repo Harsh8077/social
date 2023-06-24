@@ -10,11 +10,16 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const cors = require('cors');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 dotenv.config();
 
 const app = express();
 
+app.use(createProxyMiddleware('/'),{
+  target:"https://social-app-il8y.onrender.com",
+  changeOrigin:true
+})
 app.use(cors({
   origin: 'https://leafy-tapioca-6eb345.netlify.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
