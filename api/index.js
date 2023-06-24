@@ -20,7 +20,7 @@ const app = express();
 
 app.use(cors());
 
-app.get("/",createProxyMiddleware({target:'https://social-app-il8y.onrender.com/api',changeOrigin:true}))
+app.get("/",createProxyMiddleware({target:'https://social-app-il8y.onrender.com',changeOrigin:true}))
 
 
 
