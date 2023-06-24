@@ -9,7 +9,7 @@ const postRoute = require("./routes/posts");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
-const cors = require('cors');
+// const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 dotenv.config();
@@ -20,11 +20,11 @@ app.use(createProxyMiddleware('/'),{
   target:"https://social-app-il8y.onrender.com",
   changeOrigin:true
 })
-app.use(cors({
-  origin: 'https://leafy-tapioca-6eb345.netlify.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// app.use(cors({
+//   origin: 'https://leafy-tapioca-6eb345.netlify.app',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 
 
 
