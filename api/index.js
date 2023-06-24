@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const cors = require('cors');
+const {createProxyMiddleware} = require('http-proxy-middleware');
 
 
 dotenv.config();
@@ -17,11 +18,9 @@ dotenv.config();
 const app = express();
 
 
-app.use(cors({
-  origin: 'https://social-app-il8y.onrender.com',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
+
+app.get("/",createProxyMiddleware({target:'https://social-app-il8y.onrender.com',changeOrigin:true}))
 
 
 
@@ -66,14 +65,14 @@ app.get("/users",(req,res)=>{
     res.send("Welcome to User's Page");
 })
 
-// if(process.env.NODE_ENV=='production'){
-//   const path = require('path');
+if(process.env.NODE_ENV=='production'){
+  const path = require('path');
 
-//   app.get("/",(req,res)=>{
-//     app.use(express.static(path.resolve(__dirname,'react-social','build')));
-//     res.sendFile(path.resolve(__dirname,'react-social','build','index.html'));
-//   })
-// }
+  app.get("/",(req,res)=>{
+    app.use(express.static(path.resolve(__dirname,'react-social','build')));
+    res.sendFile(path.resolve(__dirname,'react-social','build','index.html'));
+  })
+}
 
 app.listen(5000,(err)=>{
     if(err)console.log(err);
