@@ -18,7 +18,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: 'https://leafy-tapioca-6eb345.netlify.app',
+  origin: 'https://social-app-il8y.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
